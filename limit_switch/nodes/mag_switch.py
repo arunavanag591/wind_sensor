@@ -27,15 +27,17 @@ def onAttachHandler(self):
     try:
         #If you are unsure how to use more than one Phidget channel with this event, we recommend going to
         #www.phidgets.com/docs/Using_Multiple_Phidgets for information
-        print("\nAttach Event:")
+        ''' print("\nAttach Event:")
         """
         * Get device information and display it.
         """
+       '''
         serialNumber = ph.getDeviceSerialNumber()
         channelClass = ph.getChannelClassName()
         channel = ph.getChannel()
         
         deviceClass = ph.getDeviceClass()
+        '''
         if (deviceClass != DeviceClass.PHIDCLASS_VINT):
             print("\n\t-> Channel Class: " + channelClass + "\n\t-> Serial Number: " + str(serialNumber) +
                   "\n\t-> Channel:  " + str(channel) + "\n")
@@ -43,9 +45,9 @@ def onAttachHandler(self):
             hubPort = ph.getHubPort()
             print("\n\t-> Channel Class: " + channelClass + "\n\t-> Serial Number: " + str(serialNumber) +
                   "\n\t-> Hub Port: " + str(hubPort) + "\n\t-> Channel:  " + str(channel) + "\n")
-        
+        '''
     except PhidgetException as e:
-        print("\nError in Attach Event:")
+        #print("\nError in Attach Event:")
         DisplayError(e)
         traceback.print_exc()
         return
@@ -121,7 +123,7 @@ class Mag_input(object):
     def onStateChangeHandler(self, phidget_vint_port, state):
         port = phidget_vint_port.getHubPort()
         self.state[port] = state
-        print(self.state)
+        #print(self.state)
 
     def main(self):
 
@@ -133,7 +135,7 @@ class Mag_input(object):
             #    self.publisher.publish(msg)
             
             msg = Int8MultiArray()
-            msg.data = [self.state[0],self.state[1],self.state[2],self.state[3],self.state[4],self.state[5]]
+            msg.data = [self.state[0],self.state[1],self.state[2],self.state[3]] #,self.state[4],self.state[5]]
             self.publisher.publish(msg)
 
             rate.sleep()
@@ -149,7 +151,7 @@ if __name__ == '__main__':
     #                    help="rostopic to publish to")
     (options, args) = parser.parse_args()
 
-    port_numbers = [3,5]
+    port_numbers = [0,1,2,3]
 
     rospy.init_node('mag_switch', anonymous=True)
     topic = 'mag_switch'
