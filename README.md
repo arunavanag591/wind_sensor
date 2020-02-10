@@ -65,4 +65,4 @@ Below is the directory structure of the validation package, including the genera
 
 
 
-### **TODO: Implemet Kill Switch / Emergency Switch**
+### **TODO: Implement Kill Switch / Emergency Switch**
