@@ -167,6 +167,7 @@ class Stepper_Control:
     
 
     atexit.register(self.shutdown_stepper)
+
     
 
 ################################################################################
@@ -228,14 +229,14 @@ class Stepper_Control:
         increment1 = 5000
         increment2 = -5000 
                
-        for x in range(0,5):
-          if self.limit_switch_2 == 0:
+        for x in range(0,1):
+          while self.limit_switch_2 == 0:
             self.move_motor_safely_towards_2(self.ch1_position+increment1)
             rospy.sleep(0.5)
             self.move_horizontal()
             rospy.sleep(0.5)
 
-          elif self.limit_switch_3 == 0:
+          while self.limit_switch_3 == 0:
             self.move_motor_safely_towards_3(self.ch1_position+increment2)
             rospy.sleep(0.5)
             self.move_horizontal()

@@ -18,6 +18,7 @@ if __name__ == '__main__':
     stepper = stepper_class.Stepper_Control(ch0, ch1)
     stepper.move_motor()
 
+
   except rospy.ROSInterruptException:
     pass
 

@@ -1,2 +1,1 @@
-# wind_sensor
-Wind Tunnel Project
+# Wind Tunnel Fixture
