@@ -25,9 +25,12 @@
   <depend>std_msgs</depend>
   <depend>sensor_msgs</depend>
   <depend>roslib</depend>
-  <depend>rviz</depend>
+  <!--<depend>rviz</depend>
   <depend>xacro</depend>
   <depend>message_filters</depend>
+  <depend>phidgets_api</depend>
+  <depend>phidgets_msgs</depend>
+  <depend>libphidget22</depend> -->
 
 
 
