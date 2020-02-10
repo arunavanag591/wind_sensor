@@ -210,6 +210,7 @@ class Stepper_Control:
       rospy.sleep(0.05)
 
   def move_horizontal(self): #horizontalmovement
+    #horizontal motor step size
     increment1 = 500
     increment2 = -500 
 
@@ -223,18 +224,17 @@ class Stepper_Control:
       
 
   def move_motor(self):
-    
     try:
-        
-        increment1 = 5000
-        increment2 = -5000 
+        #vertical motor step size
+        increment1 = 50000
+        increment2 = -50000 
                
-        for x in range(0,1):
+        for x in range(0,1):  #number of vertical cycles
           while self.limit_switch_2 == 0:
             self.move_motor_safely_towards_2(self.ch1_position+increment1)
-            rospy.sleep(0.5)
+            rospy.sleep(0.5) # change this timing to change the gap between vertical and horizontal
             self.move_horizontal()
-            rospy.sleep(0.5)
+            rospy.sleep(0.5) # change this timing to change the horizontal step gap duration
 
           while self.limit_switch_3 == 0:
             self.move_motor_safely_towards_3(self.ch1_position+increment2)
