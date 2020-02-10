@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+
+<node pkg="limit_switch" name="mag_switch"  type="mag_switch.py" output="screen"/>
+<node pkg="limit_switch" name="stepper_motor" type="stepper_main.py" output="screen"/>
+
+</launch>
